@@ -2,10 +2,32 @@ html{
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 14px; 
 }
+
 nav, aside{
   background-color: grey
 }
+
 header, footer{
   background-color:lightgreen; 
   text-align: center
+}
+
+.header{
+  font-size: 46px;
+}
+
+.footer{
+  font-size: 10px;
+}
+
+.content{
+  font-size: 14px;
+}
+
+.navigation{
+  font-size: 12px;
+}
+
+.sidebar{
+  font-size: 10px;
 }
