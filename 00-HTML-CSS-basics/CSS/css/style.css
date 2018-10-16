@@ -31,3 +31,11 @@ header, footer{
 .sidebar{
   font-size: 10px;
 }
+
+[class$="r"]{
+  background: magenta;
+}
+
+[class*="a"]:not([class$="r"]){
+  background: blue;
+}
