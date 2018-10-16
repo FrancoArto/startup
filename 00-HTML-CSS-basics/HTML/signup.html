@@ -3,32 +3,35 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>HTML Basics</title>
+    <title>Signup Form</title>
   </head>
-  <body>    
-    <section>
+  <body> 
+    <header role="presentation">
+      <h3>Sign Up</h3>
+    </header>   
+    <section role="application">
       <form>
-        <p>
+        <p role="group">
           <label for="txt-firstname">First name: </label>        
           <input type="text" id="txt-firstname" required>
         </p>
 
-        <p>
+        <p role="group">
           <label for="txt-lastname">Last name: </label>
           <input type="text" id="txt-lastname" required>
         </p>
 
-        <p>
+        <p role="group">
           <label for="email">Email: </label>
           <input type="email" id="email" required>
         </p>
 
-        <p>
+        <p role="group">
           <label for="birthdate">Birth date: </label>
           <input type="date" id="birthdate" required>
         </p>
 
-        <p>
+        <p role="group">
           <label for="favourite-sport">Favourite sport: </label>
           <select id="favourite-sport">
             <option value="0">Football</option>
@@ -40,12 +43,12 @@
           </select>
         </p>
 
-        <p>
+        <p role="group">
           <label for="bio">Bio: </label>
           <textarea id="bio"></textarea>
         </p>
 
-        <p>
+        <p role="group">
           <button type="submit" id="btn-signup">Sign Up</button>
           <button type="reset" id="btn-clear">Clear Form</button>
         </p>
