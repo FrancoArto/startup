@@ -26,7 +26,18 @@
     <p>This is another section</p> 
     <button type="button" onclick="showJokes('response-content')">Api Request</button>
   </section>
-  
+  <section>
+    <p>Search</p>
+    <input type="text" id="searchValue" placeholder="Search repositories">
+    <button type="button" onclick="fetchApiWithParameters(searchValue.value)">Search</button>
+    <button type="button" onclick="fetchApiWithParameters()">Search JavaScript</button>
+    
+  </section>
+  <aside>
+    <p>Repositories</p>
+    <ul id="repositories">
+    </ul>
+  </aside>
   
 </body>
 </html>

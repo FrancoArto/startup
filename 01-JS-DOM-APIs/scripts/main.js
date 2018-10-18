@@ -7,6 +7,7 @@ function showAlert(){
   alert("This is an alert mesage");
 }
 
+//fetch joke
 function apiRequest(){
   var xmlHttp = new XMLHttpRequest();
 
@@ -26,6 +27,7 @@ function apiRequest(){
   console.log("Sent");
 }
 
+//reutilizable AJAX function
 function reutilizableAJAX(config){
   return new Promise(function(resolve, reject){
 
@@ -55,8 +57,8 @@ function showJokes(target){
   config.url = "http://api.icndb.com/jokes/random";
 
   reutilizableAJAX(config).then(response => {
-    console.log(JSON.parse(response));
     let obj = JSON.parse(response);
+    console.log(obj);    
     if(obj.type === "success")
     {
       document.getElementById(target).innerHTML = obj.value.joke;
@@ -68,3 +70,21 @@ function showJokes(target){
     content.style.color = "red";
   })
 }
+
+//fetch with parameters
+function fetchApiWithParameters(value = "JavaScript"){
+  document.getElementById("repositories").innerHTML = "";
+  var config = {};
+  config.method = "GET";
+  config.url = "https://api.github.com/search/repositories?q=" + value;
+
+  reutilizableAJAX(config).then(response => {
+    let result = JSON.parse(response);
+    console.log(result);
+    result.items.forEach(element => {
+      document.getElementById("repositories").innerHTML += "<li>" + element["name"] + "</li>"
+    });
+  })
+  .catch(error => console.log(error))
+}
+
