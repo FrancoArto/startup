@@ -9,6 +9,10 @@
   <script src="./scripts/main.js"></script>
 </head>
 <body onload="fadeIn()">
+
+  <section id="response-content">
+    <p>Error testing text</p>
+  </section>
   <section id="helloworld" hidden>
     <p>Hello World!</p>
   </section>
@@ -19,9 +23,10 @@
     <p>This is another section</p>  
   </section>
   <section>
-    <p>This is another section</p>
-    <button type="button" onclick="showAlert()">Alert</button> 
+    <p>This is another section</p> 
+    <button type="button" onclick="showJokes('response-content')">Api Request</button>
   </section>
+  
   
 </body>
 </html>
