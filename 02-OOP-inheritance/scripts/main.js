@@ -14,7 +14,7 @@ class EventEmitter{
     const event = this.events[eventName];
     if(event) {
       event.forEach(callback => { //Calling every function in the event's listeners array
-       callback.call(null); //Suposed to be tested in ex. 2
+       callback.call(this);
       });
     }
   }
@@ -26,18 +26,19 @@ class EventEmitter{
   }
 }
 
-class Movie{
+class Movie extends EventEmitter{
 
   constructor(title, year, duration){
+    super();
     this.title = title;
     this.year = year;
     this.duration = duration;
   }
 
-  //Method hardcoding for logging on console
-  play(){return "Playing " + this.title}
-  pause(){return "Paused " + this.title}
-  resume(){return "Resuming " + this.title}
+  
+  play(){this.emit("Play")}
+  pause(){this.emit("Pause")}
+  resume(){this.emit("Resume")}
 }
 
 class Actor{
@@ -51,12 +52,20 @@ class Actor{
 
 //Instantiating Movies, trying methods and logging them on console
 var PulpFiction = new Movie("Pulp Fiction", 1994, 178);
+PulpFiction.on("Play", callback => {console.log("The Play method has been emitted")});
+PulpFiction.on("Pause", callback => {console.log("The Pause method has been emitted")});
+PulpFiction.on("Resume", callback => {console.log("The Resume method has been emitted")});
+
 console.log(PulpFiction);
-console.log(PulpFiction.play());
+PulpFiction.play();
 
 var EnterTheVoid = new Movie("Enter the Void", 2009, 161);
+EnterTheVoid.on("Play", callback => {console.log("The Play method has been emitted")});
+EnterTheVoid.on("Pause", callback => {console.log("The Pause method has been emitted")});
+EnterTheVoid.on("Resume", callback => {console.log("The Resume method has been emitted")});
+
 console.log(EnterTheVoid);
-console.log(PulpFiction.pause());
-console.log(EnterTheVoid.play());
-console.log(EnterTheVoid.pause());
-console.log(PulpFiction.resume());
+PulpFiction.pause();
+EnterTheVoid.play();
+EnterTheVoid.pause();
+PulpFiction.resume();
