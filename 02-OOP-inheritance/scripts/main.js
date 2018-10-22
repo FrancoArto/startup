@@ -41,11 +41,11 @@ class Movie extends EventEmitter{
     Object.assign(this, social); //Assigning the 'social' mixin to all movies
   }
   
-  play(){this.emit("Play")}
+  play(){this.emit('Play')}
 
-  pause(){this.emit("Pause")}
+  pause(){this.emit('Pause')}
 
-  resume(){this.emit("Resume")}
+  resume(){this.emit('Resume')}
 
   addCast(cast){
     if(!this.cast){
@@ -85,24 +85,24 @@ class Logger{
 //Instantiating Movies, trying methods and logging them on console
 var logger =  new Logger();
 
-var PulpFiction = new Movie("Pulp Fiction", 1994, 178);
-PulpFiction.on("Play", callback => {logger.log("The Play method has been emitted")});
+var PulpFiction = new Movie('Pulp Fiction', 1994, 178);
+PulpFiction.on('Play', callback => {logger.log('The Play method has been emitted')});
 
 console.log(PulpFiction);
 PulpFiction.play();
 
 
-var EnterTheVoid = new Movie("Enter the Void", 2009, 161);
-EnterTheVoid.on("Play", callback => {logger.log("The Play method has been emitted")});
+var EnterTheVoid = new Movie('Enter the Void', 2009, 161);
+EnterTheVoid.on('Play', callback => {logger.log('The Play method has been emitted')});
 
 console.log(EnterTheVoid);
 EnterTheVoid.play();
 
-var actor = new Actor("John Travolta", 59);
+var actor = new Actor('John Travolta', 59);
 var cast = [
-  new Actor("Leonardo Di Caprio", 57),
-  new Actor("Christoph Waltz", 68),
-  new Actor("Kerry Washington", 39)
+  new Actor('Leonardo Di Caprio', 57),
+  new Actor('Christoph Waltz', 68),
+  new Actor('Kerry Washington', 39)
 ];
 
 PulpFiction.addCast(actor);
@@ -112,5 +112,5 @@ EnterTheVoid.addCast(cast);
 logger.log(EnterTheVoid.cast);
 
 //Social mixin
-logger.log(PulpFiction.like("Franco"));
-logger.log(EnterTheVoid.share("Agustin"));
+logger.log(PulpFiction.like('Franco'));
+logger.log(EnterTheVoid.share('Agustin'));
