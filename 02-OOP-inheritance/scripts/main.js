@@ -85,18 +85,18 @@ class Logger {
 //Instantiating Movies, trying methods and logging them on console
 var logger =  new Logger();
 
-var PulpFiction = new Movie('Pulp Fiction', 1994, 178);
-PulpFiction.on('Play', callback => {logger.log('The Play method has been emitted')});
+var pulpFiction = new Movie('Pulp Fiction', 1994, 178);
+pulpFiction.on('Play', callback => {logger.log('The Play method has been emitted')});
 
-console.log(PulpFiction);
-PulpFiction.play();
+console.log(pulpFiction);
+pulpFiction.play();
 
 
-var EnterTheVoid = new Movie('Enter the Void', 2009, 161);
-EnterTheVoid.on('Play', callback => {logger.log('The Play method has been emitted')});
+var enterTheVoid = new Movie('Enter the Void', 2009, 161);
+enterTheVoid.on('Play', callback => {logger.log('The Play method has been emitted')});
 
-console.log(EnterTheVoid);
-EnterTheVoid.play();
+console.log(enterTheVoid);
+enterTheVoid.play();
 
 var actor = new Actor('John Travolta', 59);
 var cast = [
@@ -105,12 +105,12 @@ var cast = [
   new Actor('Kerry Washington', 39)
 ];
 
-PulpFiction.addCast(actor);
-logger.log(PulpFiction.cast);
+pulpFiction.addCast(actor);
+logger.log(pulpFiction.cast);
 
-EnterTheVoid.addCast(cast);
-logger.log(EnterTheVoid.cast);
+enterTheVoid.addCast(cast);
+logger.log(enterTheVoid.cast);
 
 //Social mixin
-logger.log(PulpFiction.like('Franco'));
-logger.log(EnterTheVoid.share('Agustin'));
+logger.log(pulpFiction.like('Franco'));
+logger.log(enterTheVoid.share('Agustin'));
