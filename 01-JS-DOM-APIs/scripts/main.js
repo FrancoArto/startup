@@ -1,14 +1,14 @@
-function fadeIn(){
+function fadeIn() {
   var helloWorld = document.getElementById('helloworld');
   helloWorld.hidden = false;    
 }
 
-function showAlert(){
+function showAlert() {
   alert('This is an alert mesage');
 }
 
 //fetch joke
-function apiRequest(){
+function apiRequest() {
   var xmlHttp = new XMLHttpRequest();
 
   xmlHttp.onreadystatechange = function () {
@@ -28,8 +28,8 @@ function apiRequest(){
 }
 
 //reutilizable AJAX function
-function reutilizableAJAX(config){
-  return new Promise(function(resolve, reject){
+function reutilizableAJAX(config) {
+  return new Promise(function(resolve, reject) {
 
     var xmlHttp = new XMLHttpRequest();
 
@@ -51,7 +51,7 @@ function reutilizableAJAX(config){
   });  
 }
 
-function showJokes(target){
+function showJokes(target) {
   var config = {};
   config.method = 'GET';
   config.url = 'http://api.icndb.com/jokes/random';
@@ -72,7 +72,7 @@ function showJokes(target){
 }
 
 //fetch with parameters
-function fetchApiWithParameters(value = 'JavaScript'){
+function fetchApiWithParameters(value = 'JavaScript') {
   document.getElementById('repositories').innerHTML = "";
   var config = {};
   config.method = 'GET';
@@ -89,14 +89,14 @@ function fetchApiWithParameters(value = 'JavaScript'){
 }
 
 //Representing a matrix
-function matrixToTable(matrix = [[32, 56, 12, 56], [90, 98, 72, 45], [23, 12, 45, 65], [66, 12, 54, 65]]){
+function matrixToTable(matrix = [[32, 56, 12, 56], [90, 98, 72, 45], [23, 12, 45, 65], [66, 12, 54, 65]]) {
   let body = document.getElementById('pagebody'); //Wasn't working with getElementsByTagName 
   var table = document.createElement('table');  //Creating all elements
   var tbody = document.createElement('tbody');
-  for(let i=0;i<4;i++){
+  for(let i=0;i<4;i++) {
     var row = document.createElement('tr');
 
-    for (let x=0;x<4;x++){
+    for (let x=0;x<4;x++) {
       var col = document.createElement('td');     
       let node = document.createTextNode(matrix[i][x]);
       col.appendChild(node);
