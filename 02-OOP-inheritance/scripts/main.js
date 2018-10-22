@@ -34,11 +34,27 @@ class Movie extends EventEmitter{
     this.year = year;
     this.duration = duration;
   }
-
   
   play(){this.emit("Play")}
+
   pause(){this.emit("Pause")}
+
   resume(){this.emit("Resume")}
+
+  addCast(cast){
+    if(!this.cast){
+      this.cast = [];
+    }
+
+    if(Array.isArray(cast)){
+      cast.forEach(actor => {
+        this.cast.push(actor);
+      });
+    }
+    else{
+      this.cast.push(cast);
+    }   
+  }
 }
 
 class Actor{
@@ -49,23 +65,41 @@ class Actor{
   }
 }
 
+class Logger{
+
+  constructor(){}
+
+  log(info){
+    console.log(info);
+  }
+}
+
 
 //Instantiating Movies, trying methods and logging them on console
+var logger =  new Logger();
+
 var PulpFiction = new Movie("Pulp Fiction", 1994, 178);
-PulpFiction.on("Play", callback => {console.log("The Play method has been emitted")});
-PulpFiction.on("Pause", callback => {console.log("The Pause method has been emitted")});
-PulpFiction.on("Resume", callback => {console.log("The Resume method has been emitted")});
+PulpFiction.on("Play", callback => {logger.log("The Play method has been emitted")});
 
 console.log(PulpFiction);
 PulpFiction.play();
 
+
 var EnterTheVoid = new Movie("Enter the Void", 2009, 161);
-EnterTheVoid.on("Play", callback => {console.log("The Play method has been emitted")});
-EnterTheVoid.on("Pause", callback => {console.log("The Pause method has been emitted")});
-EnterTheVoid.on("Resume", callback => {console.log("The Resume method has been emitted")});
+EnterTheVoid.on("Play", callback => {logger.log("The Play method has been emitted")});
 
 console.log(EnterTheVoid);
-PulpFiction.pause();
 EnterTheVoid.play();
-EnterTheVoid.pause();
-PulpFiction.resume();
+
+var actor = new Actor("John Travolta", 59);
+var cast = [
+  new Actor("Leonardo Di Caprio", 57),
+  new Actor("Christoph Waltz", 68),
+  new Actor("Kerry Washington", 39)
+];
+
+PulpFiction.addCast(actor);
+logger.log(PulpFiction.cast);
+
+EnterTheVoid.addCast(cast);
+logger.log(EnterTheVoid.cast);
