@@ -26,6 +26,11 @@ class EventEmitter{
   }
 }
 
+var social = {
+  share(friendName){return friendName + ` shares ${this.title}`;},
+  like(friendName){return friendName + ` likes ${this.title}`;}
+}
+
 class Movie extends EventEmitter{
 
   constructor(title, year, duration){
@@ -33,6 +38,7 @@ class Movie extends EventEmitter{
     this.title = title;
     this.year = year;
     this.duration = duration;
+    Object.assign(this, social); //Assigning the mixin to all movies
   }
   
   play(){this.emit("Play")}
@@ -75,10 +81,13 @@ class Logger{
 }
 
 
+
 //Instantiating Movies, trying methods and logging them on console
 var logger =  new Logger();
 
-var PulpFiction = new Movie("Pulp Fiction", 1994, 178);
+var PulpFiction = Object.assign(Movie, social);
+
+PulpFiction = new Movie("Pulp Fiction", 1994, 178);
 PulpFiction.on("Play", callback => {logger.log("The Play method has been emitted")});
 
 console.log(PulpFiction);
@@ -103,3 +112,7 @@ logger.log(PulpFiction.cast);
 
 EnterTheVoid.addCast(cast);
 logger.log(EnterTheVoid.cast);
+
+//Social mixin
+logger.log(PulpFiction.like("Franco"));
+logger.log(EnterTheVoid.share("Agustin"));
