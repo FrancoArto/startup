@@ -1,16 +1,16 @@
-class EventEmitter{
-  constructor(){
+class EventEmitter {
+  constructor() {
     this.events = {}
   }
 
-  on(eventName, callback){
-    if(!this.events[eventName]){
+  on(eventName, callback) {
+    if(!this.events[eventName]) {
       this.events[eventName] = []; //Creates the event's listeners array
     }
     this.events[eventName].push(callback); //Adds the listener function to the event's listeners array
   }
 
-  emit(eventName){
+  emit(eventName) {
     const event = this.events[eventName];
     if(event) {
       event.forEach(callback => { //Calling every function in the event's listeners array
@@ -19,21 +19,21 @@ class EventEmitter{
     }
   }
 
-  off(eventName, callback){
-    if(this.events[eventName]){
+  off(eventName, callback) {
+    if(this.events[eventName]) {
       this.events[eventName].delete(callback); //Removes the desired listener function
     }
   }
 }
 
 var social = {
-  share(friendName){return friendName + ` shares ${this.title}`;},
-  like(friendName){return friendName + ` likes ${this.title}`;}
+  share(friendName) {return friendName + ` shares ${this.title}`;},
+  like(friendName) {return friendName + ` likes ${this.title}`;}
 }
 
-class Movie extends EventEmitter{
+class Movie extends EventEmitter {
 
-  constructor(title, year, duration){
+  constructor(title, year, duration) {
     super();
     this.title = title;
     this.year = year;
@@ -41,41 +41,41 @@ class Movie extends EventEmitter{
     Object.assign(this, social); //Assigning the 'social' mixin to all movies
   }
   
-  play(){this.emit('Play')}
+  play() {this.emit('Play')}
 
-  pause(){this.emit('Pause')}
+  pause() {this.emit('Pause')}
 
-  resume(){this.emit('Resume')}
+  resume() {this.emit('Resume')}
 
-  addCast(cast){
-    if(!this.cast){
+  addCast(cast) {
+    if(!this.cast) {
       this.cast = [];
     }
 
-    if(Array.isArray(cast)){
+    if(Array.isArray(cast)) {
       cast.forEach(actor => {
         this.cast.push(actor);
       });
     }
-    else{
+    else {
       this.cast.push(cast);
     }   
   }
 }
 
-class Actor{
+class Actor {
 
-  constructor(name, age){
+  constructor(name, age) {
     this.name = name;
     this.age = age;
   }
 }
 
-class Logger{
+class Logger {
 
-  constructor(){}
+  constructor() {}
 
-  log(info){
+  log(info) {
     console.log(info);
   }
 }
