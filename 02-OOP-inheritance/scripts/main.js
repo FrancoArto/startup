@@ -38,7 +38,7 @@ class Movie extends EventEmitter{
     this.title = title;
     this.year = year;
     this.duration = duration;
-    Object.assign(this, social); //Assigning the mixin to all movies
+    Object.assign(this, social); //Assigning the 'social' mixin to all movies
   }
   
   play(){this.emit("Play")}
@@ -85,9 +85,7 @@ class Logger{
 //Instantiating Movies, trying methods and logging them on console
 var logger =  new Logger();
 
-var PulpFiction = Object.assign(Movie, social);
-
-PulpFiction = new Movie("Pulp Fiction", 1994, 178);
+var PulpFiction = new Movie("Pulp Fiction", 1994, 178);
 PulpFiction.on("Play", callback => {logger.log("The Play method has been emitted")});
 
 console.log(PulpFiction);
