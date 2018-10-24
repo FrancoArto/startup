@@ -80,25 +80,27 @@ function fetchApiWithParameters(value = 'JavaScript') {
 
   reutilizableAJAX(config).then(response => {
     let result = JSON.parse(response);
+    let content = '';
     console.log(result);
     result.items.forEach(element => {
-      document.getElementById('repositories').innerHTML += '<li>' + element['name'] + '</li>'
+      content += '<li>' + element['name'] + '</li>'
     });
+    document.getElementById('repositories').innerHTML = content;
   })
   .catch(error => console.log(error))
 }
 
 //Representing a matrix
 function matrixToTable(matrix = [[32, 56, 12, 56], [90, 98, 72, 45], [23, 12, 45, 65], [66, 12, 54, 65]]) {
-  let body = document.getElementById('pagebody'); //Wasn't working with getElementsByTagName 
-  var table = document.createElement('table');  //Creating all elements
-  var tbody = document.createElement('tbody');
+  const body = document.getElementById('pagebody'); //Wasn't working with getElementsByTagName 
+  const table = document.createElement('table');  //Creating all elements
+  const tbody = document.createElement('tbody');
   for(let i=0;i<4;i++) {
-    var row = document.createElement('tr');
+    const row = document.createElement('tr');
 
     for (let x=0;x<4;x++) {
-      var col = document.createElement('td');     
-      let node = document.createTextNode(matrix[i][x]);
+      const col = document.createElement('td');     
+      const node = document.createTextNode(matrix[i][x]);
       col.appendChild(node);
       row.appendChild(col); //Appending childs from inside out
     }
