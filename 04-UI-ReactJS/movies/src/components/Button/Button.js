@@ -9,13 +9,17 @@ class Button extends Component {
 
   handleOnClick(event) {
     if ((this.props.name === 'Edit') || (this.props.name === 'Delete')) {
-      this.props.onClick(event.target.id);
+      let obj = {
+        id : event.target.id,
+        name : event.target.name
+      }
+      this.props.onClick(obj);
     }
   }
 
   render() {
     return(
-      <button onClick={this.handleOnClick} id={this.props.id}>{this.props.name}</button> );
+      <button onClick={this.handleOnClick} id={this.props.id} name={this.props.name} >{this.props.name}</button> );
   }
 }
 

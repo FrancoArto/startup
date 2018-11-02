@@ -10,7 +10,13 @@ class TableRow extends Component {
   }
 
   handleOnClick(event) {
-    this.props.onEditClick(event);
+    if (event.name === 'Edit') {
+      this.props.onEditClick(event.id);
+    }
+    if (event.name === 'Delete') {
+      this.props.onDeleteClick(event.id);
+    }
+    
   }
 
   render() {
@@ -21,6 +27,7 @@ class TableRow extends Component {
         <td>{this.props.movie.year}</td>
         <td>{this.props.movie.duration}min.</td>
         <td><Button onClick={this.handleOnClick} type="button" id={this.props.id} name="Edit" /></td>
+        <td><Button onClick={this.handleOnClick} type="button" id={this.props.id} name="Delete" /></td>
       </tr>  
     )   
   }

@@ -7,23 +7,29 @@ class MovieTable extends Component {
     this.values = [];
 
     this.onEditClick = this.onEditClick.bind(this);
+    this.onDeleteClick = this.onDeleteClick.bind(this);
   }
 
   onEditClick(event) {
     this.props.onEditClick(event);
   }
 
-  componentWillMount() {
-    let x = localStorage.length + 1;
+  onDeleteClick(event) {
+    localStorage.removeItem(event);
+    window.location.reload();
+  }
 
-    /*Get all movies from localStorage, parse them to a movie object 
+
+  componentWillMount() {
+    /*Get movies from localStorage, parse them to a movie object 
     * and add a TableRow with each one's data 
     * to the values array that will later be rendered. */
-    while (x>1) {
-      x--;
-      let obj = localStorage.getItem(x);
-      let movie = JSON.parse(obj);
-      this.values.push(<TableRow onEditClick={this.onEditClick} key={x} id={x} movie={movie} />);
+    for (var key in localStorage) {
+      if (localStorage.hasOwnProperty(key)) {
+        let obj = localStorage.getItem(key);
+        let movie = JSON.parse(obj);
+        this.values.push(<TableRow onDeleteClick={this.onDeleteClick} onEditClick={this.onEditClick} key={key} id={key} movie={movie} />);      
+      }
     }
   }
 
@@ -36,6 +42,7 @@ class MovieTable extends Component {
           <th>Year</th>
           <th>Duration</th>
           <th>Edit</th>
+          <th>Delete</th>
         </tr>
       </thead>
       <tbody>

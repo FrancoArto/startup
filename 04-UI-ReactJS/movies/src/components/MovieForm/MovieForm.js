@@ -39,8 +39,12 @@ class MovieForm extends Component {
   handleSubmit(event) {
     if (!this.props.movie) {
       let movie = new Movie(this.state.movieTitle, this.state.movieYear, this.state.movieDuration); //Using local state to submit the new movie
-      
-      let x = localStorage.length + 1; //Check localstorage length to set next item's ID.
+      var lastKey = parseInt(localStorage.key(0));
+      if (isNaN(lastKey))
+      {
+        lastKey = 0;
+      }
+      var x = lastKey + 1; //Setting next item's ID.
       localStorage.setItem(x, JSON.stringify(movie)); //Inserting the new movie into localstorage
     }
     else {
