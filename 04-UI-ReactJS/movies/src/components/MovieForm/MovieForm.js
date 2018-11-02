@@ -11,7 +11,7 @@ class MovieForm extends Component {
       movieTitle : '',
       movieYear : '',
       movieDuration : ''
-    }
+    }           
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleMovieTitleChange = this.handleMovieTitleChange.bind(this);
@@ -19,6 +19,22 @@ class MovieForm extends Component {
     this.handleMovieDurationChange = this.handleMovieDurationChange.bind(this);
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.movie !== prevProps.movie) {
+      let editableMovie = localStorage.getItem(this.props.movie);
+      var movie = JSON.parse(editableMovie);
+      console.log(movie);
+      this.setState({
+        movieTitle : movie.title
+      });
+      this.setState({
+        movieYear : movie.year
+      });
+      this.setState({
+        movieDuration : movie.duration
+      });
+    }
+  }
   
   handleSubmit(event) {
     if (!this.props.movie) {
@@ -26,6 +42,10 @@ class MovieForm extends Component {
       
       let x = localStorage.length + 1; //Check localstorage length to set next item's ID.
       localStorage.setItem(x, JSON.stringify(movie)); //Inserting the new movie into localstorage
+    }
+    else {
+      let movie = new Movie(this.state.movieTitle, this.state.movieYear, this.state.movieDuration);
+      localStorage.setItem(this.props.movie, JSON.stringify(movie));
     }
   }
 
