@@ -5,16 +5,12 @@ class TableRow extends Component {
   
   constructor(props) {
     super(props);
-    this.state = {
-      movie : ''
-    }
 
     this.handleOnClick = this.handleOnClick.bind(this);
   }
 
   handleOnClick(event) {
     this.props.onEditClick(event);
-    this.setState({movie : this.props.id});
   }
 
   render() {
