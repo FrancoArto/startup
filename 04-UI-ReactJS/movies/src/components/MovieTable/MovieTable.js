@@ -4,7 +4,9 @@ import TableRow from './TableRow/TableRow';
 class MovieTable extends Component { 
   constructor(props) {
     super(props);
-    this.values = [];
+    this.state = {
+      values : []
+    }
 
     this.onEditClick = this.onEditClick.bind(this);
     this.onDeleteClick = this.onDeleteClick.bind(this);
@@ -16,7 +18,17 @@ class MovieTable extends Component {
 
   onDeleteClick(event) {
     localStorage.removeItem(event);
-    window.location.reload();
+    var arr = [];
+    for (var key in localStorage) {
+      if (localStorage.hasOwnProperty(key)) {
+        let obj = localStorage.getItem(key);
+        let movie = JSON.parse(obj);        
+        arr.push(<TableRow onDeleteClick={this.onDeleteClick} onEditClick={this.onEditClick} key={key} id={key} movie={movie} />);      
+      }
+    }
+    this.setState({
+      values : arr
+    });
   }
 
 
@@ -24,13 +36,17 @@ class MovieTable extends Component {
     /*Get movies from localStorage, parse them to a movie object 
     * and add a TableRow with each one's data 
     * to the values array that will later be rendered. */
+    var arr = this.state.values.slice();
     for (var key in localStorage) {
       if (localStorage.hasOwnProperty(key)) {
         let obj = localStorage.getItem(key);
-        let movie = JSON.parse(obj);
-        this.values.push(<TableRow onDeleteClick={this.onDeleteClick} onEditClick={this.onEditClick} key={key} id={key} movie={movie} />);      
+        let movie = JSON.parse(obj);        
+        arr.push(<TableRow onDeleteClick={this.onDeleteClick} onEditClick={this.onEditClick} key={key} id={key} movie={movie} />);      
       }
     }
+    this.setState({
+      values : arr
+    });
   }
 
   render() {
@@ -46,7 +62,7 @@ class MovieTable extends Component {
         </tr>
       </thead>
       <tbody>
-        {this.values}
+        {this.state.values}
       </tbody>
 
       </table>
