@@ -19,8 +19,7 @@ class TableRow extends Component {
     
   }
 
-  render() {
-    
+  render() {   
     return(
       <tr>
         <td>{this.props.movie.title}</td>

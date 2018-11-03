@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import Input from '../Input/Input.js'
 import Button from '../Button/Button.js';
-import Movie from '../../model/movie.js';
+import Movie from '../../../model/movie';
 
 class MovieForm extends Component { 
 
   constructor(props) {
-    super(props);
+    super(props);   
     this.state = {
       movieTitle : '',
       movieYear : '',
       movieDuration : ''
-    }           
+    }      
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleMovieTitleChange = this.handleMovieTitleChange.bind(this);
@@ -20,8 +20,8 @@ class MovieForm extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.movie !== prevProps.movie) {
-      let editableMovie = localStorage.getItem(this.props.movie);
+    if ((this.props.stateProps.movieToForm !== prevProps.stateProps.movieToForm) && (this.props.stateProps.movieToForm !== null)) {
+      let editableMovie = localStorage.getItem(this.props.stateProps.movieToForm);
       var movie = JSON.parse(editableMovie);
       console.log(movie);
       this.setState({
@@ -37,20 +37,19 @@ class MovieForm extends Component {
   }
   
   handleSubmit(event) {
-    if (!this.props.movie) {
+      event.preventDefault();
       let movie = new Movie(this.state.movieTitle, this.state.movieYear, this.state.movieDuration); //Using local state to submit the new movie
-      var lastKey = parseInt(localStorage.key(0));
-      if (isNaN(lastKey))
-      {
-        lastKey = 0;
+      var obj = {
+        name : 'Add',
+        movie: movie,
+        key: null
       }
-      var x = lastKey + 1; //Setting next item's ID.
-      localStorage.setItem(x, JSON.stringify(movie)); //Inserting the new movie into localstorage
-    }
-    else {
-      let movie = new Movie(this.state.movieTitle, this.state.movieYear, this.state.movieDuration);
-      localStorage.setItem(this.props.movie, JSON.stringify(movie));
-    }
+      if (this.props.stateProps.movieToForm) {
+        obj.name = 'Edit';
+        obj.key = this.props.stateProps.movieToForm;
+      }
+      
+      this.props.handleSubmit(obj);
   }
 
   handleMovieTitleChange(value) {    
@@ -71,7 +70,7 @@ class MovieForm extends Component {
     const movieDuration = 'movieDuration';
     const year = new Date().getFullYear();
     var name;
-    if (!this.props.movie) {
+    if (!this.props.stateProps.movieToForm) {
       name = 'Add';
     }
     else {
