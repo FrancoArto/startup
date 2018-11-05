@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, Image } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 
 export default class App extends React.Component {
@@ -16,19 +16,7 @@ export default class App extends React.Component {
             padding: 12,
             backgroundColor: 'red'
           }}>
-          <Text style={{
-            fontFamily: 'monospace',
-            fontWeight: 'normal',
-            fontSize: 32,
-            color: 'white'
-          }}>
-            This is a text
-            <Text style={{
-              color: 'black'
-            }}> element
-            </Text>
-          </Text>
-
+          <Image source={require('./assets/img1.jpg')}/>
         </View>
         <View
           style={{
@@ -38,13 +26,11 @@ export default class App extends React.Component {
             padding: 12,
             backgroundColor: 'yellow'
           }}>
-          <Text style={{
-            fontFamily: 'Roboto',
-            fontWeight: '600',
-            fontSize: 18
-          }}>
-            This is a text element
-          </Text>
+
+          <Image style={{
+            height: 80,
+            width: 100
+          }} source={{uri: 'https://cdn.airplane-pictures.net/images/uploaded-images/2018/10/26/1126893s.jpg'}}/>
         </View>
         <View
           style={{
