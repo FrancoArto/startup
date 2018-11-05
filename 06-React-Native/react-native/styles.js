@@ -1,15 +1,25 @@
 import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
-  background: {
+  backgroundRow: {
     backgroundColor: 'blue',
-    flex: 1
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-around'
+  },
+
+  backgroundColumn: {
+    backgroundColor: 'blue',
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-around'
   },
 
   box1: {
     backgroundColor: 'red',
-    height: 50,
-    width: 50
+    height: 100,
+    width: 100
+
   },
 
   box2: {
@@ -20,18 +30,9 @@ const styles = StyleSheet.create({
 
   box3: {
     backgroundColor: 'white',
-    height: 150,
-    width: 150
-  },
-
-  margin: {
-    marginBottom: '5%'
-  },
-
-  borderRadius: {
-    borderRadius: 20 
+    height: 100,
+    width: 100
   }
-
 });
 
 export default styles;
