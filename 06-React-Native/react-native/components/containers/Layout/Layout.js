@@ -1,21 +1,14 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import styles from '../../../styles';
+import Article from '../../presentational/Article/Article';
 
 
 export default class Layout extends React.Component {
   render() {
     return (
       <View style={styles.backgroundColumn}>
-        <View style={[styles.box1]}>
-
-        </View>
-        <View style={[styles.box2]}>
-          
-        </View>
-        <View style={[styles.box3]}>
-          
-        </View>
+        <Article></Article>
       </View>
     );
   }

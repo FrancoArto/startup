@@ -2,9 +2,9 @@ import { Platform, StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
   backgroundRow: {
-    backgroundColor: 'blue',
+    backgroundColor: Platform.OS === 'android' ? 'green' :  'grey',
     flex: 1,
-    justifyContent: 'space-around'
+    flexDirection: 'row'
   },
 
   backgroundColumn: {
@@ -33,6 +33,61 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     alignSelf: 'flex-end'
+  },
+
+  article:  {
+    flexDirection: 'row',
+    borderColor: 'black',
+    flex: 0.32,
+    borderWidth: 2,
+    marginTop: 40
+  },
+
+  textTitle: {
+    fontWeight: 'bold',
+    fontSize: 20,
+    marginBottom: 4
+  },
+
+  articleAuthor: {
+    fontWeight: 'bold',
+    fontStyle: 'italic',
+    fontSize: 16,
+    marginBottom: 4
+  },
+
+  textContainer: {
+    flexDirection: 'column',
+    flex: 0.7
+  },
+
+  articleContent: {
+    fontSize: 10
+  },
+
+  imgContainer: {
+    flexDirection: 'column',
+    flex: 0.3,
+    alignSelf: 'center'
+  },
+
+  articleImg: {
+    height: 100,
+    width: 100,
+    margin: 5,
+    alignSelf: 'flex-end',
+  },
+
+  socialMediaIcon: {
+    height: 20,
+    width: 20,
+    margin: 5,
+    alignSelf: 'center'
+  },
+
+  iconContainer: {
+    alignSelf: 'flex-start',
+    flexDirection: 'row'
   }
 });
 
