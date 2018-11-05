@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { Platform, StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
   backgroundRow: {
@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
   },
 
   backgroundColumn: {
-    backgroundColor: 'blue',
+    backgroundColor: Platform.OS === 'android' ? 'green' :  'grey',
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-around'
