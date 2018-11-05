@@ -13,10 +13,9 @@ export default class App extends React.Component {
             flexDirection: 'row',
             width: 400,
             height: 1000,
-            padding: 12,
             backgroundColor: 'red'
           }}>
-          <Image source={require('./assets/img1.jpg')}/>
+          <Image resizeMode={'stretch'} style={{flex: 1}} source={require('./assets/img1.jpg')}/>
         </View>
         <View
           style={{
