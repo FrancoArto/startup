@@ -16,6 +16,19 @@ export default class App extends React.Component {
             padding: 12,
             backgroundColor: 'red'
           }}>
+          <Text style={{
+            fontFamily: 'monospace',
+            fontWeight: 'normal',
+            fontSize: 32,
+            color: 'white'
+          }}>
+            This is a text
+            <Text style={{
+              color: 'black'
+            }}> element
+            </Text>
+          </Text>
+
         </View>
         <View
           style={{
@@ -25,6 +38,13 @@ export default class App extends React.Component {
             padding: 12,
             backgroundColor: 'yellow'
           }}>
+          <Text style={{
+            fontFamily: 'Roboto',
+            fontWeight: '600',
+            fontSize: 18
+          }}>
+            This is a text element
+          </Text>
         </View>
         <View
           style={{
@@ -34,6 +54,14 @@ export default class App extends React.Component {
             padding: 12,
             backgroundColor: 'blue'
           }}>
+          <Text style={{
+            fontFamily: 'sans-serif',
+            fontWeight: '300',
+            fontSize: 40,
+            color: 'white'
+          }}>
+            This is a text element
+          </Text>
         </View>
       </ScrollView>
     );
