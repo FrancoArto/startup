@@ -6,7 +6,7 @@ import styles from '../../../styles';
 export default class Layout extends React.Component {
   render() {
     return (
-      <View style={styles.backgroundRow}>
+      <View style={styles.backgroundColumn}>
         <View style={[styles.box1]}>
 
         </View>

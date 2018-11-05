@@ -17,21 +17,20 @@ const styles = StyleSheet.create({
 
   box1: {
     backgroundColor: 'red',
-    height: 100,
+    flex: 0.5,
     width: 100
-
   },
 
   box2: {
     backgroundColor: 'purple',
-    height: 100,
-    width: 100
+    width: 100,
+    flex: 0.3
   },
 
   box3: {
     backgroundColor: 'white',
-    height: 100,
-    width: 100
+    width: 100,
+    flex: 0.2
   }
 });
 
