@@ -1,14 +1,18 @@
 import React from 'react';
 import { Text, View } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default class App extends React.Component {
   render() {
     return (
-      <View>
+      <ScrollView style={{
+        flex: 1
+        }} horizontal= {true}>
         <View
           style={{
             flexDirection: 'row',
-            height: 100,
+            width: 400,
+            height: 1000,
             padding: 12,
             backgroundColor: 'red'
           }}>
@@ -16,6 +20,7 @@ export default class App extends React.Component {
         <View
           style={{
             flexDirection: 'row',
+            width: 300,
             height: 60,
             padding: 12,
             backgroundColor: 'yellow'
@@ -24,12 +29,13 @@ export default class App extends React.Component {
         <View
           style={{
             flexDirection: 'row',
+            width:200,
             height: 300,
             padding: 12,
             backgroundColor: 'blue'
           }}>
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }
