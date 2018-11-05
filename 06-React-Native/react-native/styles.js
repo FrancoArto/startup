@@ -26,6 +26,10 @@ const styles = StyleSheet.create({
 
   margin: {
     marginBottom: '5%'
+  },
+
+  borderRadius: {
+    borderRadius: 20 
   }
 
 });
