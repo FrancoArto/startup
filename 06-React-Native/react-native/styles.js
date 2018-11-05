@@ -4,7 +4,6 @@ const styles = StyleSheet.create({
   backgroundRow: {
     backgroundColor: 'blue',
     flex: 1,
-    flexDirection: 'row',
     justifyContent: 'space-around'
   },
 
@@ -17,20 +16,23 @@ const styles = StyleSheet.create({
 
   box1: {
     backgroundColor: 'red',
-    flex: 0.5,
-    width: 100
+    height: 100,
+    width: 100,
+    alignSelf: 'flex-start'
   },
 
   box2: {
-    backgroundColor: 'purple',
+    backgroundColor: 'white',
     width: 100,
-    flex: 0.3
+    height: 100,
+    alignSelf: 'center'
   },
 
   box3: {
-    backgroundColor: 'white',
+    backgroundColor: 'purple',
     width: 100,
-    flex: 0.2
+    height: 100,
+    alignSelf: 'flex-end'
   }
 });
 
