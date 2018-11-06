@@ -88,6 +88,11 @@ const styles = StyleSheet.create({
   iconContainer: {
     alignSelf: 'flex-start',
     flexDirection: 'row'
+  },
+
+  textInput: {
+    height: 50,
+    marginTop:50
   }
 });
 
