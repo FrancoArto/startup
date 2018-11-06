@@ -1,20 +1,22 @@
 import React from 'react';
-import { View } from 'react-native';
-import { createStackNavigator } from 'react-navigation';
+import { Text, View } from 'react-native';
+import { createBottomTabNavigator } from 'react-navigation';
+import SecondaryScreen from './SecondaryScreen';
+
 
 class MainScreen extends React.Component {
 
   render() {
     return (
       <View>
-        
+        <Text>Main</Text>
       </View>
     );
   }
 }
 
-export default createStackNavigator({
-  Main: {
-    screen: MainScreen
-  }  
-})
+
+export default createBottomTabNavigator ({
+  Main: MainScreen,
+  Secondary: {screen : SecondaryScreen}
+});
