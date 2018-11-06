@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
   },
 
   backgroundColumn: {
-    backgroundColor: Platform.OS === 'android' ? 'green' :  'grey',
+    backgroundColor: 'white',
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-around'
@@ -93,6 +93,35 @@ const styles = StyleSheet.create({
   textInput: {
     height: 50,
     marginTop:50
+  },
+
+  touchableContainer:  {
+    flexDirection: 'column',
+    borderColor: 'black',
+    justifyContent: 'flex-start',
+    flex: 0.25,
+    borderWidth: 2,
+    marginTop: 40
+  },
+
+  appTouchableOpacity: {
+    backgroundColor: 'green',
+    flexDirection: 'row',
+    flex: 0.2,
+    width: '60%',
+    borderWidth: 1,
+    borderRadius:15,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    marginTop:5
+  },
+
+  textPrimaryTouchableOpacity: {
+    color: 'white'
+  },
+
+  secondaryTouchableOpacity: {
+    backgroundColor: 'white',    
   }
 });
 

@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, TouchableOpacity } from 'react-native';
-import { TextInput } from 'react-native-gesture-handler';
+import { Text, View, TouchableOpacity } from 'react-native';
 import styles from '../../../styles';
 import AppTextInput from '../../presentational/AppTextInput/AppTextInput';
+import AppTouchableOpacity from '../../presentational/AppTouchableOpacity/AppTouchableOpacity';
 
 export default class EventScreen extends React.Component {
   constructor(props) {
@@ -23,10 +23,16 @@ export default class EventScreen extends React.Component {
 
   render() {
     return (
-      <View style={styles.backgroundRow}>
+      <View style={styles.backgroundColumn}>
         <TouchableOpacity onPress={this.handleOnPress}>
           <AppTextInput type="password" style={styles.textInput} onChangeText={(text) => {this.setState( { text } )}} value={this.state.text} />
         </TouchableOpacity>
+
+        <View style={styles.touchableContainer}>
+          <AppTouchableOpacity type='primary' value='Continue' />
+          <AppTouchableOpacity type='secondary' value='Sign Up' />
+          <AppTouchableOpacity type='secondary' disabled value='Disabled' />
+        </View>
       </View>
     );
   }
