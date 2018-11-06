@@ -9,13 +9,11 @@ export default class Article extends React.Component {
       <View style={styles.article}>
         <View style={styles.textContainer}>
           <Text style={styles.textTitle}>
-            This is the title of the article proposed for the exercise
+            {this.props.title}
           </Text>
-          <Text style={styles.articleAuthor}>by <Text style={{color: 'blue'}}>Franco Arto</Text></Text>
-          <Text style={styles.articleContent}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
-            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          <Text style={styles.articleAuthor}>by <Text style={{color: 'blue'}}>{this.props.author}</Text></Text>
+          <Text style={styles.articleContent}>
+            {this.props.content}
           </Text>
           <View style={styles.iconContainer}>
             <Image style={styles.socialMediaIcon} source={require('../../../assets/comment.png')} />

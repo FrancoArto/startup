@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   article:  {
     flexDirection: 'row',
     borderColor: 'black',
-    flex: 0.32,
+    flex: 0.3,
     borderWidth: 2,
     marginTop: 40
   },
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
   socialMediaIcon: {
     height: 20,
     width: 20,
-    margin: 5,
+    margin: 8,
     alignSelf: 'center'
   },
 
