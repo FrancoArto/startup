@@ -5,14 +5,18 @@ import SecondaryScreen from './SecondaryScreen';
 import { Ionicons } from '@expo/vector-icons';
 import Forms2 from './Forms2';
 import Forms3 from './Forms3';
+import styles from '../../styles';
+import AppTouchableOpacity from '../presentational/AppTouchableOpacity';
+
 
 
 class MainScreen extends React.Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.touchableContainer}>
         <Text>Main</Text>
+        <AppTouchableOpacity type="primary" value="Next" onPress={() => this.props.navigation.navigate('Forms2')} />
       </View>
     );
   }
