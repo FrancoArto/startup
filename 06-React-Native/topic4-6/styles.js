@@ -20,12 +20,13 @@ const styles = StyleSheet.create({
   appTouchableOpacity: {
     backgroundColor: 'green',
     flexDirection: 'row',
-    flex: 0.2,
+    flex: 0.25,
     width: '60%',
     borderWidth: 1,
     borderRadius:15,
     alignSelf: 'center',
     justifyContent: 'center',
+    textAlignVertical: 'center',
     marginTop:5
   },
 
@@ -46,6 +47,11 @@ const styles = StyleSheet.create({
 
   postContent: {
     fontSize: 10
+  },
+
+  activityIndicator: {
+    alignSelf: 'center',
+    flex: 1
   }
 });
 

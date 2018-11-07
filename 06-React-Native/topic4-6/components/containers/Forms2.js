@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, ScrollView } from 'react-native';
+import { Text, View, ScrollView, ActivityIndicator } from 'react-native';
 import styles from '../../styles';
 import AppTouchableOpacity from '../presentational/AppTouchableOpacity';
 
@@ -10,6 +10,7 @@ class Forms2 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      isLoading: true,
       posts: []
     }
   }
@@ -18,7 +19,8 @@ class Forms2 extends React.Component {
     return fetch('https://jsonplaceholder.typicode.com/posts')
     .then((response) => response.json())
     .then((responseJson) => {
-      this.setState({posts: responseJson});
+      this.setState({posts: responseJson,
+      isLoading: false});
     }, () => {})
     .catch((error) => {
       console.error(error);
@@ -35,6 +37,12 @@ class Forms2 extends React.Component {
       
       posts.push(<Post title={element.title} key={element.id} body={element.body} />);
     });
+
+    if (this.state.isLoading) {
+      return (
+        <ActivityIndicator style={styles.activityIndicator} size='large' color='green' />
+      )
+    }
 
     return (
       <ScrollView style={styles.container}>
