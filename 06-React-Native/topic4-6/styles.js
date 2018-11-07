@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     borderColor: 'black',
     justifyContent: 'flex-start',
-    flex: 0.25,
+    flex: 0.3,
     width: '100%',
     borderWidth: 2,
     marginTop: 40,
@@ -31,7 +31,8 @@ const styles = StyleSheet.create({
   },
 
   textPrimaryTouchableOpacity: {
-    color: 'white'
+    color: 'white',
+    textAlignVertical: 'center'
   },
 
   secondaryTouchableOpacity: {

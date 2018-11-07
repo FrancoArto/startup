@@ -26,7 +26,7 @@ class MainScreen extends React.Component {
 const formsStack = createStackNavigator({
   Forms: MainScreen,
   Posts: Forms2,
-  Forms3: Forms3
+  Post: Forms3
 }); 
 
 

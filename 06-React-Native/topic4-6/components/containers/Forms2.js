@@ -35,7 +35,7 @@ class Forms2 extends React.Component {
     var posts = [];
     this.state.posts.forEach(element => {
       
-      posts.push(<Post title={element.title} key={element.id} body={element.body} />);
+      posts.push(<Post title={element.title} key={element.id} body={element.body} onPress={() => this.props.navigation.navigate('Post', {post: element})} />);
     });
 
     if (this.state.isLoading) {
@@ -47,8 +47,8 @@ class Forms2 extends React.Component {
     return (
       <ScrollView style={styles.container}>
         <View style={styles.touchableContainer}>
-          <Text>Forms 2</Text>
-          <AppTouchableOpacity type="primary" value="Next" onPress={() => this.props.navigation.navigate('Forms3')} />
+          <Text>Posts</Text>
+          <AppTouchableOpacity type="primary" value="Next" onPress={() => this.props.navigation.navigate('Post')} />
         </View>
         <View>
           {posts}
