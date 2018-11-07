@@ -10,13 +10,14 @@ import AppTouchableOpacity from '../presentational/AppTouchableOpacity';
 
 
 
+
 class MainScreen extends React.Component {
 
   render() {
     return (
       <View style={styles.touchableContainer}>
         <Text>Main</Text>
-        <AppTouchableOpacity type="primary" value="Next" onPress={() => this.props.navigation.navigate('Forms2')} />
+        <AppTouchableOpacity type="primary" value="Next" onPress={() => this.props.navigation.navigate('Posts')} />
       </View>
     );
   }
@@ -24,7 +25,7 @@ class MainScreen extends React.Component {
 
 const formsStack = createStackNavigator({
   Forms: MainScreen,
-  Forms2: Forms2,
+  Posts: Forms2,
   Forms3: Forms3
 }); 
 

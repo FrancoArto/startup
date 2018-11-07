@@ -1,14 +1,20 @@
 import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({  
+  container: {
+    flex: 1,
+    flexDirection: 'column'
+  },
 
   touchableContainer:  {
     flexDirection: 'column',
     borderColor: 'black',
     justifyContent: 'flex-start',
     flex: 0.25,
+    width: '100%',
     borderWidth: 2,
-    marginTop: 40
+    marginTop: 40,
+    alignSelf: 'flex-start'
   },
 
   appTouchableOpacity: {
@@ -29,6 +35,17 @@ const styles = StyleSheet.create({
 
   secondaryTouchableOpacity: {
     backgroundColor: 'white',    
+  },
+
+  postTitle: {
+    fontWeight: 'bold',
+    fontSize: 18,
+    marginTop:10,
+    marginBottom: 5
+  },
+
+  postContent: {
+    fontSize: 10
   }
 });
 
