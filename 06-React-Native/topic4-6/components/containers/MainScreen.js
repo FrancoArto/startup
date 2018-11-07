@@ -1,8 +1,10 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import { createBottomTabNavigator } from 'react-navigation';
+import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 import SecondaryScreen from './SecondaryScreen';
 import { Ionicons } from '@expo/vector-icons';
+import Forms2 from './Forms2';
+import Forms3 from './Forms3';
 
 
 class MainScreen extends React.Component {
@@ -16,9 +18,15 @@ class MainScreen extends React.Component {
   }
 }
 
+const formsStack = createStackNavigator({
+  Forms: MainScreen,
+  Forms2: Forms2,
+  Forms3: Forms3
+}); 
+
 
 export default createBottomTabNavigator ({
-  Forms: MainScreen,
+  Forms: formsStack,
   Other: {screen : SecondaryScreen}
 }, {
   navigationOptions : ({navigation}) => ({
