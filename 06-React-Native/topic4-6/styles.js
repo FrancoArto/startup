@@ -53,6 +53,29 @@ const styles = StyleSheet.create({
   activityIndicator: {
     alignSelf: 'center',
     flex: 1
+  },
+
+  camera: {
+    flex: 1,
+    alignContent: 'flex-end',
+    flexDirection: 'row'
+  },
+
+  takePicture: {
+    flexDirection: 'row',
+    flex: 1,
+    height: '15%',
+    justifyContent: 'center',
+    backgroundColor: 'transparent',
+    alignSelf: 'flex-end',
+  },
+
+  cameraText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: 'white',
+    textAlign: 'center',
+    textAlignVertical: 'center'
   }
 });
 
