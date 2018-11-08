@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   appTouchableOpacity: {
     backgroundColor: 'green',
     flexDirection: 'row',
-    flex: 0.25,
+    flex: 0.5,
     width: '60%',
     borderWidth: 1,
     borderRadius:15,

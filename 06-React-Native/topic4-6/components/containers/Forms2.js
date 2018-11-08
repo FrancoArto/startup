@@ -1,8 +1,6 @@
 import React from 'react';
-import { Text, View, ScrollView, ActivityIndicator } from 'react-native';
+import { ScrollView, ActivityIndicator } from 'react-native';
 import styles from '../../styles';
-import AppTouchableOpacity from '../presentational/AppTouchableOpacity';
-
 import Post from '../presentational/Post';
 
 
@@ -45,14 +43,8 @@ class Forms2 extends React.Component {
     }
 
     return (
-      <ScrollView style={styles.container}>
-        <View style={styles.touchableContainer}>
-          <Text>Posts</Text>
-          <AppTouchableOpacity type="primary" value="Next" onPress={() => this.props.navigation.navigate('Post')} />
-        </View>
-        <View>
-          {posts}
-        </View>
+      <ScrollView style={styles.container}>        
+        {posts}        
       </ScrollView>
       
     );
