@@ -20,9 +20,15 @@ class CameraScreen extends React.Component {
     this.setState({ hasCameraPermission: status === 'granted' });
   }
   
-  async takePicture() {
+  takePicture() {
     if (this.camera) {
-      let photo = await this.camera.takePictureAsync();
+      this.camera.takePictureAsync()
+        .then((image) => {
+          this.props.navigation.navigate('ShowPicture', {image: image})
+        })
+        .catch((error) => {
+          console.error(error);
+        }); 
     }
   }
 
