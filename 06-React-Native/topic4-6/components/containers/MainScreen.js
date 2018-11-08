@@ -1,12 +1,14 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
-import SecondaryScreen from './SecondaryScreen';
+import SecondaryScreen from './CameraScreen';
 import { Ionicons } from '@expo/vector-icons';
 import Forms2 from './Forms2';
 import Forms3 from './Forms3';
 import styles from '../../styles';
 import AppTouchableOpacity from '../presentational/AppTouchableOpacity';
+import CameraScreen from './CameraScreen';
+import ShowPictureScreen from './ShowPictureScreen';
 
 
 
@@ -29,10 +31,15 @@ const formsStack = createStackNavigator({
   Post: Forms3
 }); 
 
+const cameraStack = createStackNavigator({
+  Camera: CameraScreen,
+  ShowPicture: ShowPictureScreen
+}); 
+
 
 export default createBottomTabNavigator ({
   Forms: formsStack,
-  Other: {screen : SecondaryScreen}
+  Camera: cameraStack
 }, {
   navigationOptions : ({navigation}) => ({
     tabBarIcon: ({focused, tintColor}) => {
@@ -40,8 +47,8 @@ export default createBottomTabNavigator ({
       var iconName;
       if (routeName === 'Forms') {
         iconName = 'ios-list';
-      } else if (routeName === 'Other') {
-        iconName = 'ios-more';
+      } else if (routeName === 'Camera') {
+        iconName = 'ios-camera';
       }
       return <Ionicons name={iconName} size={20} color={tintColor}/>;
     },

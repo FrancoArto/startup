@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-class SecondaryScreen extends React.Component {
+class CameraScreen extends React.Component {
 
   render() {
     return (
@@ -12,7 +12,7 @@ class SecondaryScreen extends React.Component {
   }
 }
 
-export default SecondaryScreen;
+export default CameraScreen;
 
     
 
