@@ -4,12 +4,12 @@ function EditMovie(key, movie = null) {
   }
   else {
     movieToForm = false;
-    localStorage.setItem(key, JSON.stringify(movie));
   }
   return {
     type : 'EDIT_MOVIE',
     key : key,
-    movieToForm : movieToForm
+    movieToForm : movieToForm,
+    movie: movie
   }
 }
 export default EditMovie;

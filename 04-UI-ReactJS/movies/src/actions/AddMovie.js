@@ -1,8 +1,7 @@
-function AddMovie(key, movie) {
-  localStorage.setItem(key, JSON.stringify(movie)); //Inserting the new movie into localstorage
+function AddMovie(movie) {
   return {
     type : 'ADD_MOVIE',
-    movie : key
+    movie : movie
   }
 }
 

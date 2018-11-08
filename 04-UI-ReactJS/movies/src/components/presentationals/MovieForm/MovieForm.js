@@ -21,16 +21,10 @@ class MovieForm extends Component {
 
   componentDidUpdate(prevProps) {
     if ((this.props.stateProps.movieToForm !== prevProps.stateProps.movieToForm) && (this.props.stateProps.movieToForm !== null)) {
-      let editableMovie = localStorage.getItem(this.props.stateProps.movieToForm);
-      var movie = JSON.parse(editableMovie);
-      console.log(movie);
+      let movie = this.props.stateProps.movies[this.props.stateProps.movieToForm];
       this.setState({
-        movieTitle : movie.title
-      });
-      this.setState({
-        movieYear : movie.year
-      });
-      this.setState({
+        movieTitle : movie.title,
+        movieYear : movie.year,
         movieDuration : movie.duration
       });
     }
@@ -41,8 +35,7 @@ class MovieForm extends Component {
       let movie = new Movie(this.state.movieTitle, this.state.movieYear, this.state.movieDuration); //Using local state to submit the new movie
       var obj = {
         name : 'Add',
-        movie: movie,
-        key: null
+        movie: movie
       }
       if (this.props.stateProps.movieToForm) {
         obj.name = 'Edit';

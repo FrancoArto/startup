@@ -21,13 +21,10 @@ class MovieTable extends Component {
 
 
   render() {
-    
     var movieRows = [];
-    this.props.stateProps.movies.forEach(key => {
-      var movie = JSON.parse(localStorage.getItem(key));
-      if (movie) {
-        movieRows.push(<TableRow onDeleteClick={this.onDeleteClick} onEditClick={this.onEditClick} key={ key } id={ key } movie={ movie } />);
-      }
+    this.props.stateProps.movies.forEach(item => {
+      let key = this.props.stateProps.movies.indexOf(item);
+      movieRows.push(<TableRow onDeleteClick={this.onDeleteClick} onEditClick={this.onEditClick} key={ key } id={ key } movie={ item } />);      
     });
     
     return (

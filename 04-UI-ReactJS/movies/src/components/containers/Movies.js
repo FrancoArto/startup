@@ -16,12 +16,8 @@ class Movies extends Component {
   }
 
   handleSubmit(event) {
-    if (event.name === 'Add') {
-      let key = Math.max(...this.props.stateProps.movies) + 1;
-      if (this.props.stateProps.movies.length === 0) {
-        key = 1;
-      }      
-      this.props.AddMovie(key, event.movie);
+    if (event.name === 'Add') {      
+      this.props.AddMovie(event.movie);
     } 
     else {
       this.props.EditMovie(event.key, event.movie);

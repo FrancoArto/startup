@@ -3,13 +3,6 @@ const initialState = {
   movieToForm : null
 }
 
-if (initialState.movies.length === 0) {
-  for (let i = 0; i<localStorage.length; i++) {
-    let key = localStorage.key(i);
-    let obj = parseInt(key);
-    initialState.movies.push(obj);
-  }
-}
 
 const MovieReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -24,13 +17,14 @@ const MovieReducer = (state = initialState, action) => {
         edit.movieToForm = action.key;        
       }
       else {
+        edit.movies[action.key] = action.movie;
         edit.movieToForm = null;
       }
       return edit;
 
     case 'DELETE_MOVIE': 
       let del = Object.assign({}, state);
-      del.movies = del.movies.filter(movie => {return movie !== action.movie}) //Removing deleted movie's key from state array
+      del.movies.splice(action.movie, 1); //Removing deleted movie's key from state array
       return del;
 
     default: return state;
